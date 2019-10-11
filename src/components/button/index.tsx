@@ -2,13 +2,9 @@ import * as React from 'react';
 import { addClassName } from '../../helper';
 import { Brand } from '../../types'
 
-interface inputProp extends React.InputHTMLAttributes<HTMLInputElement>{
-
-}
-
-interface IbuttonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   brand?: Brand,
-  children?: React.ReactNode, 
+  children?: React.ReactNode,
   failedText?: string,
   iconClass?: string,
   iconLeft?: boolean,
@@ -19,7 +15,7 @@ interface IbuttonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   textLabel: string,
 }
 
-export const Button: React.FC<IbuttonProps> = (props) => {
+export const Button: React.FC<IButtonProps> = (props) => {
   const {
     brand = 'primary',
     children,
