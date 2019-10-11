@@ -1,40 +1,49 @@
 import * as React from 'react';
-import { Brand } from '../../types';
 import { addClassName } from '../../helper';
+import { Brand } from '../../types'
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  textLabel: string,
+interface inputProp extends React.InputHTMLAttributes<HTMLInputElement>{
+
+}
+
+interface IbuttonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  brand?: Brand,
+  children?: React.ReactNode, 
+  failedText?: string,
+  iconClass?: string,
   iconLeft?: boolean,
   iconRight?: boolean,
   loading?: boolean,
   successText?: string,
-  failedText?: string,
-  children?: React.ReactNode, 
-  brand?: Brand,
-  iconClass?: string,
   textClass?: string,
+  textLabel: string,
 }
 
-export const Button: React.FC<Props> = (props) => {
+export const Button: React.FC<IbuttonProps> = (props) => {
   const {
+    brand = 'primary',
+    children,
     className,
+    failedText,
     iconClass,
-    textClass,
-    textLabel,
     iconLeft,
     iconRight,
-    loading,
+    loading = false,
     successText,
-    failedText,
-    children,
-    brand,
+    textClass,
+    textLabel,
     ...buttonProps
   } = props;
 
   const buttonClassName: string = addClassName([
-    'btn',
-    brand && `btn--${brand}`,
+    'neat-btn',
+    `neat-btn--${brand}`,
     className,
+  ]);
+
+  const textClassName: string = addClassName([
+    'neat-btn__text',
+    textClass,
   ])
 
   return (
@@ -42,7 +51,7 @@ export const Button: React.FC<Props> = (props) => {
       {(children && iconLeft) && <div>{children[0]}</div>}
       {successText && <p>{successText}</p>}
       {failedText && <p>{failedText}</p>}
-      <p>{textLabel}</p>
+      <p className={textClassName}>{textLabel}</p>
       {(children && iconRight) && <div>{children[0]}</div>}
     </button>
   )
