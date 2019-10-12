@@ -8,3 +8,15 @@ $info: #48dbfb;
 $light: #ecf0f1;
 $dark: #2c3e50;
 $white: #ffffff;
+
+$colors: (
+    'primary': $primary,
+    'secondary': $secondary,
+    'success': $success,
+    'warning': $warning,
+    'danger': $danger,
+    'info': $info,
+    'light': $light,
+    'dark': $dark,
+    'white': $white
+);

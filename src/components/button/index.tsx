@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { addClassName } from '../../helper';
-import { NColor } from '../../types'
+import { NColor, Variant } from '../../types'
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   NColor?: NColor,
-  color?: string
+  color?: string,
+  variant?: Variant,
   children?: React.ReactNode,
   failedText?: string,
   iconClass?: string,
@@ -19,8 +20,9 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button: React.FC<IButtonProps> = (props) => {
   const {
-    NColor = 'secondary',
+    NColor,
     color = 'none',
+    variant = 'raised',
     children,
     className,
     failedText,
@@ -36,7 +38,8 @@ export const Button: React.FC<IButtonProps> = (props) => {
 
   const buttonClassName: string = addClassName([
     'neat-btn',
-    `n-bg-${NColor}`,
+    `neat-btn__${variant}`,
+    NColor && `neat-btn__${variant}--${NColor}`,
     className,
   ]);
 

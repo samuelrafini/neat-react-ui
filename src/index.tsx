@@ -5,22 +5,20 @@
 import * as React from "react";
 import { Button } from "./components/button";
 import "./styles/index.scss";
-import { Input } from "./components/input";
-
 export type Props = { text: string };
 
 export default class ExampleComponent extends React.Component<Props> {
   render() {
     return (
       <>
+        <Button textLabel="text test" onClick={() => console.log("test")} NColor='danger'></Button>
         <Button
-          textLabel="button"
+          textLabel="text test"
           onClick={() => console.log("test")}
-          NColor='primary'
+        color='#FFC0CB'
         >
-          <img ref="" />
         </Button>
-        <Input className="input" type="text" name="InputName" />
+        <Button textLabel="text test" onClick={() => console.log("test")} NColor='primary'></Button>
       </>
     );
   }

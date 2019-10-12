@@ -1,6 +1,41 @@
 .neat-btn {
-    background-color: blue;
-}   
-.test {
-    background-color: blue;
+  margin: 1rem;
+  font-size: 1.8rem;
+  padding: 0.5em 1.5em;
+  outline: none;
+  cursor: pointer;
+
+  &__raised {
+    color: $white;
+    transition: all 0.2s;
+    border-bottom: solid 0.5rem rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transition: all 0.2s;
+    }
+
+    &:active {
+      transform: translateY(0.5rem);
+      border-bottom: solid 0rem rgba(0, 0, 0, 0);
+      transition: all 0.2s;
+    }
+
+    @each $name, $color in $colors {
+      // Raised Button loop for NColors
+      &--#{$name} {
+        background-color: $color;
+        border-bottom: solid 0.5rem darken($color: $color, $amount: 5);
+
+        &:hover {
+          background-color: lighten($color: $color, $amount: 5);
+          transition: all 0.2s;
+        }
+
+        &:active {
+          transform: translateY(0.5rem);
+          border-bottom: solid 0rem darken($color: $color, $amount: 0);
+        }
+      }
+    }
+  }
 }
