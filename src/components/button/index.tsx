@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { addClassName } from '../../helper';
-import { Brand } from '../../types'
+import { NColor } from '../../types'
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  brand?: Brand,
+  NColor?: NColor,
+  color?: string
   children?: React.ReactNode,
   failedText?: string,
   iconClass?: string,
@@ -13,11 +14,13 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   successText?: string,
   textClass?: string,
   textLabel: string,
+  fullWidth?: string,
 }
 
 export const Button: React.FC<IButtonProps> = (props) => {
   const {
-    brand = 'primary',
+    NColor = 'secondary',
+    color = 'none',
     children,
     className,
     failedText,
@@ -33,7 +36,7 @@ export const Button: React.FC<IButtonProps> = (props) => {
 
   const buttonClassName: string = addClassName([
     'neat-btn',
-    `neat-btn--${brand}`,
+    `n-bg-${NColor}`,
     className,
   ]);
 
@@ -43,7 +46,7 @@ export const Button: React.FC<IButtonProps> = (props) => {
   ])
 
   return (
-    <button className={buttonClassName} {...buttonProps}>
+    <button style={{backgroundColor: color}} className={buttonClassName} {...buttonProps}>
       {(children && iconLeft) && <div>{children[0]}</div>}
       {successText && <p>{successText}</p>}
       {failedText && <p>{failedText}</p>}
