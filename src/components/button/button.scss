@@ -1,4 +1,5 @@
 .neat-btn {
+  position: relative;
   margin: 1rem;
   font-size: 1.8rem;
   padding: 0.5em 1.5em;
@@ -8,15 +9,15 @@
   &__raised {
     color: $white;
     transition: all 0.2s;
-    border-bottom: solid 0.5rem rgba(0, 0, 0, 0.1);
+    border-bottom: solid 0.2em rgba(0, 0, 0, 0.1);
 
     &:hover {
       transition: all 0.2s;
     }
 
     &:active {
-      transform: translateY(0.5rem);
-      border-bottom: solid 0rem rgba(0, 0, 0, 0);
+      transform: translateY(0.2em);
+      border-bottom: solid 0em rgba(0, 0, 0, 0);
       transition: all 0.2s;
     }
 
@@ -24,7 +25,7 @@
       // Raised Button loop for NColors
       &--#{$name} {
         background-color: $color;
-        border-bottom: solid 0.5rem darken($color: $color, $amount: 5);
+        border-bottom: solid 0.2em darken($color: $color, $amount: 5);
 
         &:hover {
           background-color: lighten($color: $color, $amount: 5);
@@ -32,10 +33,23 @@
         }
 
         &:active {
-          transform: translateY(0.5rem);
-          border-bottom: solid 0rem darken($color: $color, $amount: 0);
+          transform: translateY(0.2em);
+          border-bottom: solid 0em darken($color: $color, $amount: 0);
         }
       }
     }
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+  }
+  &:focus:not(:active)::after {
+    @include clickAnimation()
   }
 }

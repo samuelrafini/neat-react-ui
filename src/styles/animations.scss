@@ -1,0 +1,39 @@
+@mixin clickAnimation {
+    -webkit-animation: clickAnimation 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0s 1 normal;
+	        animation: clickAnimation 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0s 1 normal;
+}
+
+@-webkit-keyframes clickAnimation {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    background-color: rgba(255, 255, 255, 0)
+  }
+  50% {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+    background-color: rgba(255, 255, 255, 0.3)
+  }
+  100% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    background-color: rgba(255, 255, 255, 0)
+  }
+}
+@keyframes clickAnimation {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    background-color: rgba(255, 255, 255, 0)
+  }
+  50% {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+    background-color: rgba(255, 255, 255, 0.3)
+  }
+  100% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    background-color: rgba(255, 255, 255, 0)
+  }
+}
