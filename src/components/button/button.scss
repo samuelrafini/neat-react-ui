@@ -1,24 +1,34 @@
 .neat-btn {
   position: relative;
-  margin: 1rem;
   font-size: 1.8rem;
   padding: 0.5em 1.5em;
   outline: none;
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $light;
+  }
 
   &__raised {
     color: $white;
     transition: all 0.2s;
     border-bottom: solid 0.2em rgba(0, 0, 0, 0.1);
 
-    &:hover {
+    &:hover:enabled {
       transition: all 0.2s;
     }
 
-    &:active {
+    &:active:enabled {
       transform: translateY(0.2em);
       border-bottom: solid 0em rgba(0, 0, 0, 0);
       transition: all 0.2s;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $light;
+      border-bottom: solid 0.2em darken($color: $light, $amount: 5);
     }
 
     @each $name, $color in $colors {
@@ -27,12 +37,12 @@
         background-color: $color;
         border-bottom: solid 0.2em darken($color: $color, $amount: 5);
 
-        &:hover {
+        &:hover:enabled {
           background-color: lighten($color: $color, $amount: 5);
           transition: all 0.2s;
         }
 
-        &:active {
+        &:active:enabled {
           transform: translateY(0.2em);
           border-bottom: solid 0em darken($color: $color, $amount: 0);
         }

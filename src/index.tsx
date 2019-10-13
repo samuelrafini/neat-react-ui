@@ -18,7 +18,8 @@ export default class ExampleComponent extends React.Component<Props> {
         color='#FFC0CB'
         >
         </Button>
-        <Button textLabel="text test" onClick={() => console.log("test")} NColor='primary'></Button>
+        <Button textLabel="text test" onClick={() => console.log("test")} NColor='dark'></Button>
+        <Button textLabel="text test" onClick={() => console.log("test")} disabled NColor='dark'></Button>
       </>
     );
   }
