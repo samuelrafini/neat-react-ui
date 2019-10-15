@@ -20,7 +20,9 @@ export default class ExampleComponent extends React.Component<Props> {
         >
           <img ref="" />
         </Button>
-        <Input className="input" type="text" name="InputName" />
+        <form >
+        <Input characterCounter={'0/20'}label="Testing" className="input" type="text" name="InputName" onChange={(e) => console.log(e.currentTarget.value)}/>
+        </form>
       </>
     );
   }
