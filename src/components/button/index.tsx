@@ -50,11 +50,11 @@ export const Button: React.FC<IButtonProps> = (props) => {
 
   return (
     <button style={{backgroundColor: color}} className={buttonClassName} {...buttonProps}>
-      {(children && iconLeft) && <div>{children[0]}</div>}
+      {(children && iconLeft) && <div className='neat-btn__icon'>{children[0]}</div>}
       {successText && <p>{successText}</p>}
       {failedText && <p>{failedText}</p>}
       <p className={textClassName}>{textLabel}</p>
-      {(children && iconRight) && <div>{children[0]}</div>}
+      {(children && iconRight) && <div className='neat-btn__icon--right'>{children[0]}</div>}
     </button>
   )
 }

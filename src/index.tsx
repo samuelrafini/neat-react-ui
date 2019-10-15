@@ -13,10 +13,12 @@ export default class ExampleComponent extends React.Component<Props> {
       <>
         <Button textLabel="text test" onClick={() => console.log("test")} NColor='danger'></Button>
         <Button
+          iconLeft
           textLabel="text test"
           onClick={() => console.log("test")}
         color='#FFC0CB'
         >
+        <img src='../../'></img>
         </Button>
         <Button textLabel="text test" onClick={() => console.log("test")} NColor='dark'></Button>
         <Button textLabel="text test" onClick={() => console.log("test")} disabled NColor='dark'></Button>
