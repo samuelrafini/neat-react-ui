@@ -1,3 +1,6 @@
+@import '../../styles/variables.scss';
+@import '../../styles/animations.scss';
+
 .neat-btn {
   position: relative;
   display: inline-flex;
@@ -10,47 +13,54 @@
   }
 
   &__icon {
-    background-color: rgba(0, 0, 0, 0.1);
-    background-color: black;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.04);
     width: 2em;
     height: 100%;
 
-    & + .neat-btn__text {
+    &--left {
+      left: 0;
 
+      & ~ .neat-btn__text {
+        margin-left: 2.5em
+      }
     }
 
     &--right {
+      right: 0;
 
+      & ~ .neat-btn__text {
+        margin-right: 2.5em;
+      }
     }
   }
 
   &__raised {
     color: $white;
     transition: all 0.2s;
-    border-bottom: solid 0.2em rgba(0, 0, 0, 0.1);
+    border-bottom: solid 0.3em rgba(0, 0, 0, 0.1);
 
     &:hover:enabled {
       transition: all 0.2s;
     }
 
     &:active:enabled {
-      transform: translateY(0.2em);
-      border-bottom: solid 0em rgba(0, 0, 0, 0);
-      transition: all 0.2s;
+      transform: translateY(0.3em);
+      border-bottom: solid 0 rgba(0, 0, 0, 0);
     }
 
     &:disabled {
       cursor: not-allowed;
       background-color: $light;
-      border-bottom: solid 0.2em darken($color: $light, $amount: 5);
-      transition: all 0.2s;
+      border-bottom: solid 0.3em darken($color: $light, $amount: 12);
     }
 
     @each $name, $color in $colors {
       // Raised Button loop for NColors
       &--#{$name} {
         background-color: $color;
-        border-bottom: solid 0.2em darken($color: $color, $amount: 5);
+        border-bottom: solid 0.3em darken($color: $color, $amount: 12);
 
         &:hover:enabled {
           background-color: lighten($color: $color, $amount: 5);
@@ -58,8 +68,8 @@
         }
 
         &:active:enabled {
-          transform: translateY(0.2em);
-          border-bottom: solid 0em darken($color: $color, $amount: 0);
+          transform: translateY(0.3em);
+          border-bottom: solid 0 darken($color: $color, $amount: 0);
         }
       }
     }

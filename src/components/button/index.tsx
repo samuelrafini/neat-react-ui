@@ -3,24 +3,23 @@ import { addClassName } from '../../helper';
 import { NColor, Variant } from '../../types'
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  NColor?: NColor,
+  neatColor?: NColor,
   color?: string,
   variant?: Variant,
   children?: React.ReactNode,
   failedText?: string,
   iconClass?: string,
-  iconLeft?: boolean,
-  iconRight?: boolean,
+  iconLeft?: Node | string,
+  iconRight?: Node | string,
   loading?: boolean,
   successText?: string,
   textClass?: string,
-  textLabel: string,
   fullWidth?: string,
 }
 
 export const Button: React.FC<IButtonProps> = (props) => {
   const {
-    NColor,
+    neatColor,
     color = 'none',
     variant = 'raised',
     children,
@@ -29,17 +28,16 @@ export const Button: React.FC<IButtonProps> = (props) => {
     iconClass,
     iconLeft,
     iconRight,
-    loading = false,
+    loading,
     successText,
     textClass,
-    textLabel,
     ...buttonProps
   } = props;
 
   const buttonClassName: string = addClassName([
     'neat-btn',
     `neat-btn__${variant}`,
-    NColor && `neat-btn__${variant}--${NColor}`,
+    neatColor && `neat-btn__${variant}--${neatColor}`,
     className,
   ]);
 
@@ -48,13 +46,31 @@ export const Button: React.FC<IButtonProps> = (props) => {
     textClass,
   ])
 
+  const iconClassName: string = addClassName([
+    'neat-btn__icon',
+    iconLeft && 'neat-btn__icon--left',
+    iconRight && 'neat-btn__icon--right',
+    iconClass
+  ])
+
+  const renderIcon = (icon: React.ReactNode | string): React.ReactNode => {
+    if (React.isValidElement(icon)) {
+      return <span className={iconClassName}>{iconLeft}</span>
+    } else if (typeof icon === 'string') {
+      return <img className={iconClassName} src={icon} />
+    }
+    return;
+  }
+
+  console.log(renderIcon(<img src='../../'/>));
+
   return (
-    <button style={{backgroundColor: color}} className={buttonClassName} {...buttonProps}>
-      {(children && iconLeft) && <div className='neat-btn__icon'>{children[0]}</div>}
-      {successText && <p>{successText}</p>}
-      {failedText && <p>{failedText}</p>}
-      <p className={textClassName}>{textLabel}</p>
-      {(children && iconRight) && <div className='neat-btn__icon--right'>{children[0]}</div>}
+    <button style={{ backgroundColor: color }} className={buttonClassName} {...buttonProps}>
+      {iconLeft && renderIcon(iconLeft)}
+      {iconRight && renderIcon(iconRight)}
+      {/* {successText && <span>{successText}</span>}
+      {failedText && <span>{failedText}</span>} */}
+      <span className={textClassName}>{children}</span>
     </button>
-  )
+  );
 }
