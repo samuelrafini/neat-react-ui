@@ -6,10 +6,11 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   brand?: Brand;
   label?: string;
   characterCounter: string;
+  iconRight: boolean;
 }
 
 export const Input: React.FC<Props> = props => {
-  const { className, brand, label,characterCounter, ...inputProps } = props;
+  const { iconRight, className, brand, label,characterCounter, children, ...inputProps } = props;
 
   const inputClassName: string = addClassName([
     "neat-input",
@@ -20,7 +21,8 @@ export const Input: React.FC<Props> = props => {
     <div>
       <label>
       {label}
-      <input className={inputClassName} {...inputProps} type="text" />
+        <input className={inputClassName} {...inputProps} type="text" />
+        {(children &&iconRight) && <div>{children[0]}</div>}
       </label>
       <span>{characterCounter}</span>
     </div>

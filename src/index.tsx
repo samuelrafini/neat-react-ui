@@ -21,7 +21,8 @@ export default class ExampleComponent extends React.Component<Props> {
           <img ref="" />
         </Button>
         <form >
-        <Input characterCounter={'0/20'}label="Testing" className="input" type="text" name="InputName" onChange={(e) => console.log(e.currentTarget.value)}/>
+          <Input iconRight={true} characterCounter={'0/20'} label="Testing" className="input" type="text" name="InputName" onChange={(e) => console.log(e.currentTarget.value)} />
+          <img src="example/public/images/email.png" />
         </form>
       </>
     );
