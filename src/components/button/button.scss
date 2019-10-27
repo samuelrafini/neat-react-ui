@@ -10,6 +10,12 @@
 
   &__text {
     margin: 0.5em 1.5em;
+    transition: all 0.3s ease-in-out;
+
+    &--none {
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
   }
 
   &__icon {
@@ -36,10 +42,16 @@
     }
   }
 
+  // Raised button default
   &__raised {
     color: $white;
     transition: all 0.2s;
     border-bottom: solid 0.3em rgba(0, 0, 0, 0.1);
+
+    &--loading {
+      transform: translateY(0.3em);
+      border-bottom: solid 0 rgba(0, 0, 0, 0);
+    }
 
     &:hover:enabled {
       transition: all 0.2s;
@@ -56,8 +68,8 @@
       border-bottom: solid 0.3em darken($color: $light, $amount: 12);
     }
 
+    // Raised Button loop for NColors
     @each $name, $color in $colors {
-      // Raised Button loop for NColors
       &--#{$name} {
         background-color: $color;
         border-bottom: solid 0.3em darken($color: $color, $amount: 12);
@@ -70,6 +82,17 @@
         &:active:enabled {
           transform: translateY(0.3em);
           border-bottom: solid 0 darken($color: $color, $amount: 0);
+        }
+
+        &.neat-btn__raised--loading {
+          transform: translateY(0.3em);
+          background-color: darken($color: $color, $amount: 15);
+          border-bottom: solid 0 darken($color: $color, $amount: 0);
+          transition: all 0.5s;
+
+          &:hover {
+            background-color: darken($color: $color, $amount: 15);
+          }
         }
       }
     }

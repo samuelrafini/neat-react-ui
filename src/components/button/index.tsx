@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { addClassName } from '../../helper';
 import { NColor, Variant } from '../../types'
+import { DotsLoading } from '../loading';
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   neatColor?: NColor,
@@ -38,11 +39,13 @@ export const Button: React.FC<IButtonProps> = (props) => {
     'neat-btn',
     `neat-btn__${variant}`,
     neatColor && `neat-btn__${variant}--${neatColor}`,
+    loading && `neat-btn__${variant}--loading`,
     className,
   ]);
 
   const textClassName: string = addClassName([
     'neat-btn__text',
+    loading && 'neat-btn__text--none',
     textClass,
   ])
 
@@ -68,9 +71,10 @@ export const Button: React.FC<IButtonProps> = (props) => {
     <button style={{ backgroundColor: color }} className={buttonClassName} {...buttonProps}>
       {iconLeft && renderIcon(iconLeft)}
       {iconRight && renderIcon(iconRight)}
+      { loading && <DotsLoading />}
       {/* {successText && <span>{successText}</span>}
       {failedText && <span>{failedText}</span>} */}
-      <span className={textClassName}>{children}</span>
+      {<span className={textClassName}>{children}</span>}
     </button>
   );
 }
