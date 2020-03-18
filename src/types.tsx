@@ -10,6 +10,6 @@ export type NColor =
 'white';
 export type Falsy = false | '' | 0 | null | undefined;
 export type Variant = 'outlined' | 'flat' | 'raised';
-export type Shape = 'round' | 'square' | 'circle';
+export type Shape = 'rounded' | 'full-rounded'| 'rectangle' | 'circle';
 
 // TODO: create Theme types

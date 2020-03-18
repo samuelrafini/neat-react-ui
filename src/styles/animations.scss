@@ -8,19 +8,19 @@
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     background-color: rgba(255, 255, 255, 0);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
   }
   50% {
     -webkit-transform: scale(0.75);
     transform: scale(0.75);
-    background-color: rgba(165, 55, 55, 0.2);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+    background-color: rgba(165, 55, 55, 0.1);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
   }
   100% {
     -webkit-transform: scale(1);
     transform: scale(1);
     background-color: rgba(255, 255, 255, 0);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
   }
 }
 @keyframes clickAnimation {
@@ -28,18 +28,18 @@
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     background-color: rgba(255, 255, 255, 0);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
   }
   50% {
     -webkit-transform: scale(0.75);
     transform: scale(0.75);
     background-color: rgba(255, 255, 255, 0.2);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
   }
   100% {
     -webkit-transform: scale(1);
     transform: scale(1);
     background-color: rgba(255, 255, 255, 0);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
   }
 }
