@@ -15,12 +15,12 @@ npm install --save neat-react-ui
 ```tsx
 import * as React from 'react'
 
-import MyComponent from 'neat-react-ui'
+import { Button } from 'neat-react-ui'
 
-class Example extends React.Component {
+class homePage extends React.Component {
   render () {
     return (
-      <MyComponent />
+      <Button shape="rounded" iconLeft={<img />} neatColor='success'>button 1</Button>
     )
   }
 }
