@@ -4,3 +4,9 @@
     background-color: $color;
   }
 };
+
+@each $name, $size in $sizes {
+  .n-size-#{$name} {
+    font-size: $size;
+  }
+};

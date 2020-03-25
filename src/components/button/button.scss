@@ -1,11 +1,7 @@
-@import "../../styles/variables.scss";
-@import "../../styles/animations.scss";
-
 .neat-btn {
   position: relative;
   display: inline-flex;
   outline: none;
-  font-size: 1.8rem;
   cursor: pointer;
 
   &__text {
@@ -45,7 +41,6 @@
   &:disabled {
     cursor: not-allowed;
     color: darken($color: $light, $amount: 15);
-    background-color: $light;
   }
 
   &::after {
@@ -67,7 +62,7 @@
 .neat-btn-raised {
   color: $white;
   transition: all 0.2s;
-  border-bottom: solid 0.3em rgba(0, 0, 0, 0.1);
+  border-bottom: solid 0.3em rgba(0, 0, 0, 0.3);
 
   &--loading {
     transform: translateY(0.3em);
@@ -89,6 +84,7 @@
     cursor: not-allowed;
     background-color: $light;
     border-bottom: solid 0.3em darken($color: $light, $amount: 12);
+    background-image: none;
   }
 
   // Raised Button loop for NColors
@@ -121,6 +117,7 @@
   }
 }
 
+// Flat button default
 .neat-btn-flat {
     color: $white;
     box-shadow: inset #ffffff00 0px 0px 0px 0px;
@@ -131,20 +128,21 @@
     }
   
     &:hover:enabled {
-      box-shadow: inset #00000075 1px 1px 3px 1px;
-      // background-color: black;
-      // transition: all 1s;
+      background-color: rgba(255, 255, 255, 0.5);
+      transition: all 0.2s;
     }
   
     &:active:enabled {
-      box-shadow: inset #00000075 1px 1px 3px 1px;
+      transform: scale(1.05);
     }
   
     &:disabled {
       cursor: not-allowed;
       background-color: $light;
+      background-image: none;
     }
 
+    // Flat button loop
     @each $name, $color in $colors {
       &--#{$name} {
         background-color: $color;
@@ -152,13 +150,14 @@
   
         &:hover:enabled {
           background-color: lighten($color: $color, $amount: 5);
-          transition: all 0.2s;
         }
   
-        &.neat-btn-raised--loading {
-          transform: translateY(0.3em);
+        &.neat-btn-flat--loading {
           background-color: darken($color: $color, $amount: 15);
-          transition: all 0.5s;
+
+          &:active:enabled {
+            transform: none;
+          }
   
           &:hover {
             background-color: darken($color: $color, $amount: 15);
@@ -168,8 +167,60 @@
     }
 }
 
+// Outline button default
+.neat-btn-outlined {
+
+  background-color: rgba(255, 255, 255, 0);
+  border-width: 0.15em;
+  border-style: solid;
+
+  &--loading {
+    transition: all 1s;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0.15em solid $light;
+  }
+
+  &:hover:enabled {
+    transform: scale(1.01);
+    transition: all 0.5s;
+  }
+
+  &:active:enabled {
+    transform: scale(1.05);
+    transition: all 0.5s;
+  }
+
+  // Outline button loop
+  @each $name, $color in $colors {
+    &--#{$name} {
+      background-color: rgba(255, 255, 255, 0);
+      border: 0.15em solid $color;
+      color: $color;
+
+      &:hover:enabled {
+        background-color: rgba(255, 255, 255, 0);
+        border: 0.15em solid lighten($color: $color, $amount: 5);
+        transition: all 0.2s;
+      }
+
+      &.neat-btn-outlined--loading {
+        transition: all 0.5s;
+
+        &:hover {
+          border: 0.15em solid darken($color: $color, $amount: 15);
+          color: darken($color: $color, $amount: 15)
+        }
+      }
+    }
+  }
+}
 
 
+// "rounded" | "full-rounded" | "square" | "circle"
 .neat-btn-rounded {
   border-radius: 0.5em;
 
@@ -181,7 +232,6 @@
     border-radius: 0 0.5em 0.5em 0;
   }
 }
-// "rounded" | "full-rounded" | "square" | "circle"
 
 .neat-btn-full-rounded {
   border-radius: 2em;

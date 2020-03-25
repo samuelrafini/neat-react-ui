@@ -2,21 +2,42 @@ import * as React from "react";
 import { addClassName } from "../../helper";
 import { NColor } from "../../types";
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  error?: boolean;
+  message?: string;
+  className?: string;
   iconLeft?: boolean;
   iconRight?: boolean;
-  NColor?: NColor;
+  stateColor?: inputStateColor;
+  ref?: React.Ref<HTMLInputElement>;
+}
+
+interface inputStateColor {
+  default?: NColor | string;
+  focused?: NColor | string;
+  entered?: NColor | string;
+  error?: NColor | string
 }
 
 
-
-export const Input: React.FC<Props> = props => {
-  const { iconLeft, iconRight, className, NColor, ...inputProps} = props;
+const Input: React.FC<IInputProps> = (props => {
+  const { label, error, message, className, iconLeft, iconRight, stateColor, ref, ...inputProps } = props;
 
   const inputClassName: string = addClassName([
     'neat-input',
-    `neat-input--${NColor}`,
     className,
   ]);
-  return <input className={inputClassName} {...inputProps}/>;
-};
+
+  
+
+  return (
+    <div>
+      <label htmlFor={inputProps.name}>{label}</label>
+      <input {...inputProps} id={inputProps.name} ref={ref} className={inputClassName} />
+    </div>
+  );
+
+});
+
+export default React.forwardRef(Input);

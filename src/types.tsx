@@ -11,5 +11,4 @@ export type NColor =
 export type Falsy = false | '' | 0 | null | undefined;
 export type Variant = 'outlined' | 'flat' | 'raised';
 export type Shape = 'rounded' | 'full-rounded'| 'rectangle' | 'circle';
-
-// TODO: create Theme types
+export type Sizes = 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';

@@ -1,4 +1,4 @@
-// 'primary' | 'success' | 'warning' | 'danger' | 'info'
+// NColors
 $primary: #3498db;
 $secondary: #9b59b6;
 $success: #2ecc71;
@@ -19,4 +19,24 @@ $colors: (
     'light': $light,
     'dark': $dark,
     'white': $white
+);
+
+
+// Sizes 
+$xx-small: 1.2rem;
+$x-small: 1.4rem;
+$small: 1.6rem;
+$medium: 1.8rem;
+$large: 2rem;
+$x-large: 2.2rem;
+$xx-large: 2.4rem;
+
+$sizes: (
+    'xx-small': $xx-small,
+    'x-small': $x-small,
+    'small': $small,
+    'medium': $medium,
+    'large': $large,
+    'x-large': $x-large,
+    'xx-large': $xx-large,
 );
