@@ -8,20 +8,20 @@ export default {
   component: Button,
   decorators: [withKnobs, jsxDecorator]
 };
-
 export const button = () => (
-  <Button
-    classname
-    neatColor={select("Neat Color", neatColors, "primary")}
-    color={color('Color', '')}
-    variant={select("Variant", variant, "raised")}
-    shape={select("Shape", shape, "rounded")}
-    fontSize={select("Font Size", fontSize, "medium")}
-    loading={boolean('Loading', false)}
-    disabled={boolean('disabled', false)}
-  >
-    {text("Text as child", "Submit")}
-  </Button>
+    <Button
+      classname
+      neatColor={select("Neat Color", neatColors, "primary")}
+      color={color('Color', '')}
+      variant={select("Variant", variant, "raised")}
+      shape={select("Shape", shape, "rounded")}
+      fontSize={select("Font Size", fontSize, "medium")}
+      loading={boolean('Loading', false)}
+      disabled={boolean('disabled', false)}
+      fluid={boolean('Fluid (full width)', false)}
+    >
+      {text("Text as child", "Submit")}
+    </Button>
 );
 
 const neatColors = {

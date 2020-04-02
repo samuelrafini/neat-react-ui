@@ -1,0 +1,63 @@
+@import "../../styles/variables.scss";
+
+.input-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 300px;
+}
+
+.neat-input {
+  padding: 0.8em;
+  color: $dark;
+  border: 0.1em solid $light;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+
+  &__label {
+    color: $dark;
+    margin-bottom: 0.2em;
+  }
+
+  &__message {
+    margin-top: 0.2em;
+    color: #858585;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &:hover {
+    background-color: lighten($color: $primary, $amount: 45%);
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &:focus {
+    background-color: lighten($color: $primary, $amount: 45%);
+    border-color: $primary;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &--touched {
+    &:not(:focus) {
+      -webkit-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+
+      & ~ .neat-input__message {
+        color: $danger;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+      }
+
+      &:invalid {
+        border-color: $danger;
+        background-color: lighten($color: $danger, $amount: 40%);
+      }
+
+      &:valid {
+        border-color: $success;
+      }
+    }
+  }
+}

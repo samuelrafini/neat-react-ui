@@ -3,10 +3,11 @@ import { addClassName } from '../../helper';
 import { NColor, Variant, Shape, Sizes } from '../../types';
 import { LoaderRectangle } from '../loader';
 
-interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   neatColor?: NColor,
   color?: string,
   fontSize: Sizes,
+  fluid: boolean,
   variant?: Variant,
   shape?: Shape,
   children?: React.ReactNode,
@@ -17,13 +18,14 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   textClass?: string,
 }
 
-const Button: React.FC<IButtonProps> = (props) => {
+const Button: React.FC<ButtonProps> = (props) => {
   const {
     neatColor,
     color,
     variant = 'raised',
     shape = 'rectangle',
     fontSize = 'medium',
+    fluid,
     children,
     className,
     iconClass,
@@ -34,12 +36,16 @@ const Button: React.FC<IButtonProps> = (props) => {
     ...buttonProps
   } = props;
 
+  
+
   const buttonClassName: string = addClassName([
     'neat-btn',
     `neat-btn-${variant}`,
     neatColor && `neat-btn-${variant}--${neatColor}`,
     loading && `neat-btn-${variant}--loading`,
     `neat-btn-${shape}`,
+    fluid && 'n-full',
+    fluid && 'n-center',
     className,
   ]);
 

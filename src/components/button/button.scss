@@ -3,6 +3,7 @@
   display: inline-flex;
   outline: none;
   cursor: pointer;
+  height: fit-content;
 
   &__text {
     margin: 0.5em 1.5em;
@@ -99,6 +100,7 @@
       }
 
       &:active:enabled {
+        margin-bottom: 0.33em;
         transform: translateY(0.3em);
         border-bottom: solid 0 darken($color: $color, $amount: 0);
       }
