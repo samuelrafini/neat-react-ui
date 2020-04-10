@@ -18,8 +18,11 @@
 
   &__icon {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
-    width: 2em;
+    width: 3em;
     height: 100%;
 
     &--left {

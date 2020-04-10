@@ -7,7 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   neatColor?: NColor,
   color?: string,
   fontSize: Sizes,
-  fluid: boolean,
+  fluid?: boolean,
   variant?: Variant,
   shape?: Shape,
   children?: React.ReactNode,
@@ -92,7 +92,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   const renderIcon = (icon: React.ReactNode | string): React.ReactNode => {
     if (React.isValidElement(icon)) {
-      return <span className={iconClassName}>{icon}</span>
+      return <div className={iconClassName}>{icon}</div>
     } else if (typeof icon === 'string') {
       return <img className={iconClassName} src={icon} />
     };

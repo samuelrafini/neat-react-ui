@@ -4,12 +4,12 @@ import { Sizes, Shape } from "../../types";
 import './input.scss';
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  labelClassName: string;
-  containerClassName: string;
-  labelFontSize: Sizes;
-  inputFontSize: Sizes;
-  messageFontSize: Sizes;
-  fluid: boolean;
+  labelClassName?: string;
+  containerClassName?: string;
+  labelFontSize?: Sizes;
+  inputFontSize?: Sizes;
+  messageFontSize?: Sizes;
+  fluid?: boolean;
   shape?: Shape,
   error?: boolean;
   message?: string;
