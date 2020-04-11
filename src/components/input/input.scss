@@ -56,7 +56,8 @@
       }
 
       &:valid {
-        border-color: $success;
+        border-color: lighten($color: $primary, $amount: 45%);
+        background-color: lighten($color: $primary, $amount: 45%);
       }
     }
   }
