@@ -1,7 +1,6 @@
 import * as React from "react";
 import { addClassName } from "../../helper";
 import { Sizes, Shape } from "../../types";
-import './input.scss';
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   labelClassName?: string;
@@ -55,6 +54,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref: React.
   const inputContainerClassName: string = addClassName([
     'input-container',
     fluid && 'n-full',
+    containerClassName,
   ]);
 
   const inputClassName: string = addClassName([

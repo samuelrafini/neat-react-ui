@@ -34,7 +34,7 @@ const App = () => {
       <Button shape="full-rounded" variant='flat' iconRight={<img />} iconLeft={<img />} loading neatColor='danger'>button 1</Button>
       <Button fontSize="medium" variant='outlined' color='red'>button 1</Button>
       <Button fontSize="x-small" shape="rounded" iconLeft={<img />} neatColor='success'>butt lon 1</Button>
-      <Input required ref={inputRef} placeholder="name" label="name" name="name" onChange={e => setState(e.currentTarget.value)} value={state} />
+      <Input required  fluid ref={inputRef} placeholder="name" label="name" name="name" onChange={e => setState(e.currentTarget.value)} value={state} />
       <Input required type='email' ref={inputRef2} placeholder="name" label="name" name="name" onChange={e => setState(e.currentTarget.value)} message='insert email' value={state} />
     </div>
   )
