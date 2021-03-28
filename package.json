@@ -18,7 +18,8 @@
     "serve": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest -env=jsdom"
+    "test": "jest -env=jsdom",
+    "test-watch": "jest -env=jsdom --watch"
   },
   "dependencies": {
     "babel-preset-react-app": "^10.0.0",
